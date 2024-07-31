@@ -17,21 +17,24 @@ export async function getStaticProps() {
 export default function Home({ allPostsData }) {
 
   return (
-    <div className="relative min-h-screen bg-offwhite-100 flex items-center justify-center">
+    <div className="relative min-h-screen bg-offwhite-100 flex flex-col items-center justify-between">
       <Head>
         <title>{siteTitle}</title>
       </Head>
 
-      {/* Blurred Bubbles */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-10 left-10 w-96 h-96 bg-purple-400 opacity-50 blur-3xl rounded-full"></div>
-        <div className="absolute top-40 right-10 w-96 h-96 bg-pink-500 opacity-50 blur-3xl rounded-full"></div>
-        <div className="absolute bottom-10 left-10 w-96 h-96 bg-red-500 opacity-50 blur-3xl rounded-full"></div>
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-blue-400 opacity-50 blur-3xl rounded-full"></div>
+        {/* Bubble 1 - Purple */}
+        <div className="absolute top-[-20%] left-[-10%] w-[50rem] h-[50rem] bg-purple-400 opacity-40 blur-3xl rounded-full"></div>
+        
+        {/* Bubble 2 - Pink */}
+        <div className="absolute top-[-10%] right-[-20%] w-[50rem] h-[50rem] bg-pink-500 opacity-40 blur-3xl rounded-full"></div>
+        
+        {/* Bubble 3 - Blue */}
+        <div className="absolute bottom-[-10%] left-[-20%] w-[50rem] h-[50rem] bg-blue-400 opacity-40 blur-3xl rounded-full"></div>
       </div>
 
       {/* Content Box */}
-      <div className="relative z-10 bg-white rounded-lg shadow-2xl p-8 w-11/12 max-w-5xl mt-8 mx-auto">
+      <div className="relative z-10 bg-white rounded-lg shadow-2xl p-8 w-11/12 max-w-5xl mx-auto my-8">
         <Layout home>
           <section className={`${utilStyles.headingMd} flex flex-col items-start ml-10`}>
             <p className="text-2xl font-bold mb-4">Hi, hello and welcome!</p>
@@ -50,40 +53,77 @@ export default function Home({ allPostsData }) {
 
           {/* Overlapping Images Section */}
           <section className="relative mt-12 mb-8">
-          <div className="relative w-full max-w-5xl h-96">
-            {/* Image 1 */}
-            <img 
-              src="/skiing.png" 
-              alt="Image 1" 
-              className="absolute top-0 -left-32 w-1/2 h-1/2 object-cover rounded-lg transform -rotate-6 shadow-lg" 
-              style={{ zIndex: 1 }} 
-            />
-            
-            {/* Image 2 */}
-            <img 
-              src="/skiing.png" 
-              alt="Image 2" 
-              className="absolute top-0 -right-32 w-2/3 h-2/3 object-cover rounded-lg transform rotate-6 shadow-lg" 
-              style={{ zIndex: 2 }} 
-            />
-            
-            {/* Image 3 */}
-            <img 
-              src="/skiing.png" 
-              alt="Image 3" 
-              className="absolute bottom-0 left-0 w-1/2 h-1/2 object-cover rounded-lg transform rotate-6 shadow-lg" 
-              style={{ zIndex: 3 }} 
-            />
-            
-            {/* Image 4 */}
-            <img 
-              src="/skiing.png" 
-              alt="Image 4" 
-              className="absolute bottom-0 right-0 w-1/2 h-1/2 object-cover rounded-lg transform -rotate-6 shadow-lg" 
-              style={{ zIndex: 4 }} 
-            />
-          </div>
+            <div className="relative w-full max-w-5xl h-96">
+              {/* Image 1 */}
+              <img 
+                src="/skiing.png" 
+                alt="Image 1" 
+                className="absolute top-0 -left-32 w-1/2 h-1/2 object-cover rounded-lg transform -rotate-6 shadow-lg" 
+                style={{ zIndex: 1 }} 
+              />
+              
+              {/* Image 2 */}
+              <img 
+                src="/skiing.png" 
+                alt="Image 2" 
+                className="absolute top-0 -right-32 w-2/3 h-2/3 object-cover rounded-lg transform rotate-6 shadow-lg" 
+                style={{ zIndex: 2 }} 
+              />
+              
+              {/* Image 3 */}
+              <img 
+                src="/skiing.png" 
+                alt="Image 3" 
+                className="absolute bottom-0 left-0 w-1/2 h-1/2 object-cover rounded-lg transform rotate-6 shadow-lg" 
+                style={{ zIndex: 3 }} 
+              />
+              
+              {/* Image 4 */}
+              <img 
+                src="/skiing.png" 
+                alt="Image 4" 
+                className="absolute bottom-0 right-0 w-1/2 h-1/2 object-cover rounded-lg transform -rotate-6 shadow-lg" 
+                style={{ zIndex: 4 }} 
+              />
+            </div>
           </section>
+          <section className={`${utilStyles.headingMd} ${utilStyles.padding1px} flex flex-col items-start mt-16`}>
+          {/* Grid of Text Blocks */}
+          <div className="grid grid-cols-1 gap-6 w-full">
+            {/* Text Block 1 */}
+            <Link href="/link-to-page-1" className="block p-4 border rounded-lg shadow-md transition-transform duration-300 ease-in-out transform hover:bg-offwhite-100 hover:scale-105" style={{ minWidth: '40%' }}>
+              <h3 className="text-xl font-bold mb-2">The Favorites</h3>
+              <p className="text-sm text-gray-600">
+              My favorite projects because they’re a fun mix of challenges and creative problem-solving. 
+              Each one is a chance to dive into something new and see where my curiosity takes me.
+              </p>
+            </Link>
+            
+            {/* Text Block 2 */}
+            <Link href="/link-to-page-2" className="block p-4 border rounded-lg shadow-md transition-transform duration-300 ease-in-out transform hover:bg-offwhite-100 hover:scale-105" style={{ minWidth: '40%' }}>
+              <h3 className="text-xl font-bold mb-2">Present Learnings</h3>
+              <p className="text-sm text-gray-600">What I'm currently learning, everything from coding techniques, training methodology to delving into philosophical ideas and general knowledge. 
+                It’s all about expanding my brainpower and finding new ways to mix new ideas with real-world skills!</p>
+            </Link>
+            
+            {/* Text Block 3 */}
+            <Link href="/link-to-page-3" className="block p-4 border rounded-lg shadow-md transition-transform duration-300 ease-in-out transform hover:bg-offwhite-100 hover:scale-105" style={{ minWidth: '40%' }}>
+              <h3 className="text-xl font-bold mb-2">Book Archive</h3>
+              <p className="text-sm text-gray-600 mb-2">Check out my favorite reads from both the present and the past. 
+                I’ve gathered a collection of books that left a mark on me, and I’m sharing some of the best ones worth diving into. 
+                Explore and see if anything catches your eye!
+              </p>
+            </Link>
+            
+            {/* Text Block 4 */}
+            <Link href="/link-to-page-4" className="block p-4 border rounded-lg shadow-md transition-transform duration-300 ease-in-out transform hover:bg-offwhite-100 hover:scale-105" style={{ minWidth: '40%' }}>
+              <h3 className="text-xl font-bold mb-2">Just Me</h3>
+              <p className="text-sm text-gray-600">What the title says, it's just me! Progress from the gym, new achievements, 
+                photos with friends or a rant about tomatoes and ketchup. If you like what you see here, we might aswell get a coffee sometime.
+              </p>
+            </Link>
+          </div>
+        </section>
 
           <section className={`${utilStyles.headingMd} ${utilStyles.padding1px} flex flex-col items-start mt-12 ml-10`}>
             <p className="text-2xl font-bold mb-4">The "Hall of Fame"</p>

@@ -1,4 +1,5 @@
-/* styles/globals.css */
+/* styles/global.css */
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -28,4 +29,14 @@ a:hover {
 img {
   max-width: 100%;
   display: block;
+}
+
+/* Fade-in effect */
+.fade-in {
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.fade-in.visible {
+  opacity: 1;
 }
